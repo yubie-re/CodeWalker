@@ -149,7 +149,6 @@ namespace CodeWalker.GameFiles
 
             byte[] entriesdata = br.ReadBytes((int)EntryCount * 16); //4x uints each
             byte[] namesdata = br.ReadBytes((int)NamesLength);
-
             switch (Encryption)
             {
                 case RpfEncryption.NONE: //no encryption
@@ -228,7 +227,7 @@ namespace CodeWalker.GameFiles
                 if ((e is RpfResourceFileEntry))// && string.IsNullOrEmpty(e.Name))
                 {
                     var rfe = e as RpfResourceFileEntry;
-                    rfe.IsEncrypted = rfe.NameLower.EndsWith(".ysc");//any other way to know..?
+                    rfe.IsEncrypted = rfe.NameLower.EndsWith(".zsc");//any other way to know..?
                 }
 
                 AllEntries.Add(e);
@@ -417,7 +416,7 @@ namespace CodeWalker.GameFiles
 
                     string lname = resentry.NameLower;
 
-                    if (lname.EndsWith(".ysc"))
+                    if (lname.EndsWith(".zsc"))
                     {
                         updateStatus?.Invoke("Extracting " + resentry.Name + "...");
 
@@ -440,6 +439,7 @@ namespace CodeWalker.GameFiles
                             byte[] decr;
                             if (IsAESEncrypted)
                             {
+                                
                                 decr = GTACrypto.DecryptAES(tbytes);
 
                                 //special case! probable duplicate pilot_school.ysc
@@ -2073,7 +2073,7 @@ namespace CodeWalker.GameFiles
         NONE = 0, //some modded RPF's may use this
         OPEN = 0x4E45504F, //1313165391 "OPEN", ie. "no encryption"
         AES =  0x0FFFFFF9, //268435449
-        NG =   0x0FEFFFFF, //267386879
+        NG = 0x0FFFEFFF, //267386879
     }
 
 

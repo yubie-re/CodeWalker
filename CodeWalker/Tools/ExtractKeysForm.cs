@@ -118,7 +118,7 @@ namespace CodeWalker.Tools
 
                     UpdateStatus("Saving found keys...");
 
-                    Settings.Default.Key = Convert.ToBase64String(GTA5Keys.PC_AES_KEY);
+                    Settings.Default.Key = Convert.ToBase64String(GTA5Keys.XB_AES_KEY);
                     Settings.Default.Save();
                     //GTA5Keys.SaveToPath();
 

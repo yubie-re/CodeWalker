@@ -4364,9 +4364,9 @@ namespace CodeWalker
                 GTA5Keys.LoadFromPath(GTAFolder.CurrentGTAFolder, Settings.Default.Key);
 
                 //save the key for later if it's not saved already. not really ideal to have this in this thread
-                if (string.IsNullOrEmpty(Settings.Default.Key) && (GTA5Keys.PC_AES_KEY != null))
+                if (string.IsNullOrEmpty(Settings.Default.Key) && (GTA5Keys.XB_AES_KEY != null))
                 {
-                    Settings.Default.Key = Convert.ToBase64String(GTA5Keys.PC_AES_KEY);
+                    Settings.Default.Key = Convert.ToBase64String(GTA5Keys.XB_AES_KEY);
                     Settings.Default.Save();
                 }
             }

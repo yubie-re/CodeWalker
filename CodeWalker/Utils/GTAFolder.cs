@@ -32,11 +32,11 @@ namespace CodeWalker
                 return false;
             }
 
-            if(!File.Exists(folder + @"\gta5.exe"))
-            {
-                failReason = $"GTA5.exe not found in folder \"{folder}\"";
-                return false;
-            }
+            //f(!File.Exists(folder + @"\gta5.exe") && !File.Exists(folder + @"\gta5.exe"))
+            //{
+            //    failReason = $"GTA5.exe not found in folder \"{folder}\"";
+            //    return false;
+            //}
 
             return true;
         }
@@ -160,9 +160,9 @@ namespace CodeWalker
 
         public static void UpdateSettings()
         {
-            if (string.IsNullOrEmpty(Settings.Default.Key) && (GTA5Keys.PC_AES_KEY != null))
+            if (string.IsNullOrEmpty(Settings.Default.Key) && (GTA5Keys.XB_AES_KEY != null))
             {
-                Settings.Default.Key = Convert.ToBase64String(GTA5Keys.PC_AES_KEY);
+                Settings.Default.Key = Convert.ToBase64String(GTA5Keys.XB_AES_KEY);
                 Settings.Default.Save();
             }
         }

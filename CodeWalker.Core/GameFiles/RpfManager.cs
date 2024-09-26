@@ -380,16 +380,16 @@ namespace CodeWalker.GameFiles
                         }
                         if (BuildExtendedJenkIndex)
                         {
-                            if (nlow.EndsWith(".ydr"))// || nlow.EndsWith(".yft")) //do yft's get lods?
+                            if (nlow.EndsWith(".zdr"))// || nlow.EndsWith(".yft")) //do yft's get lods?
                             {
                                 var sname = nlow.Substring(0, nlow.Length - 4);
                                 JenkIndex.Ensure(sname + "_lod");
                                 JenkIndex.Ensure(sname + "_loda");
                                 JenkIndex.Ensure(sname + "_lodb");
                             }
-                            if (nlow.EndsWith(".ydd"))
+                            if (nlow.EndsWith(".zdd"))
                             {
-                                if (nlow.EndsWith("_children.ydd"))
+                                if (nlow.EndsWith("_children.zdd"))
                                 {
                                     var strn = nlow.Substring(0, nlow.Length - 13);
                                     JenkIndex.Ensure(strn);
